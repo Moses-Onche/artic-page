@@ -1,6 +1,9 @@
 let button = document.getElementById('button');
 
 async function search() {
+  document.getElementById('image').setAttribute("src", './utils/roll-anim.gif');
+  document.getElementById('image').setAttribute("width", "300px");
+
   let searchTerm = document.getElementById('search').value;
   searchTerm = searchTerm.replace(/ /g, "%20") // Remove whitespace and add %20 separator
   let url = "https://api.artic.edu/api/v1/artworks/search?q=" + searchTerm;
@@ -12,9 +15,6 @@ async function search() {
 }
 
 async function getImage(imageURL){
-  document.getElementById('image').setAttribute("src", './utils/roll-anim.gif');
-  document.getElementById('image').setAttribute("width", "300px");
-
   let imageResponse = await fetch(imageURL);
   let imageInfo = await imageResponse.json();
 
